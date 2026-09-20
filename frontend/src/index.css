@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply text-ink dark:text-paper antialiased;
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.pine.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply w-full rounded-chip bg-pine px-4 py-3 text-center font-medium text-paper
+      transition-colors hover:bg-pine-dark disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .input-field {
+    @apply w-full rounded-chip border border-ink/15 bg-white px-4 py-3 text-ink
+      placeholder:text-ink/50 transition-colors focus:border-pine focus:outline-none
+      focus:ring-2 focus:ring-pine/25
+      dark:border-paper/20 dark:bg-white/5 dark:text-paper dark:placeholder:text-paper/50;
+  }
+  .auth-card {
+    @apply rounded-card border border-ink/10 bg-white/85 p-6
+      shadow-[0_12px_32px_-16px_rgba(18,24,27,0.35)]
+      dark:border-paper/10 dark:bg-white/5 dark:shadow-none;
+  }
+  .card {
+    @apply rounded-card border border-line bg-white/60 p-5 dark:border-line-dark dark:bg-white/5;
+  }
+  .modal-panel {
+    @apply w-full max-w-sm rounded-t-card bg-paper p-6 dark:bg-ink sm:rounded-card
+      max-h-[92dvh] overflow-y-auto;
+  }
+}
+
+@layer base {
+  select.input-field {
+    color-scheme: light;
+    background-color: #ffffff;
+  }
+  :is(.dark) select.input-field {
+    color-scheme: dark;
+    background-color: #141d1c;
+  }
+  select.input-field option {
+    color: #12181b;
+    background-color: #ffffff;
+  }
+  :is(.dark) select.input-field option {
+    color: #e6e8e4;
+    background-color: #141d1c;
+  }
+}
